@@ -43,32 +43,32 @@
 
   .page-list {
     @include flexbox;
-  }
 
-  .page-item {
-    margin-right: 4px;
+    .page-item {
+      margin-right: 4px;
 
-    &:last-child {
-      margin-right: 0;
-    }
+      &:last-child {
+        margin-right: 0;
+      }
 
-    &.is-active {
+      &.is-active {
+        a,
+        button {
+          color: $white !important;
+          background: $blue;
+        }
+      }
+
       a,
       button {
-        color: $white !important;
-        background: $blue;
-      }
-    }
+        @extend %page-item-base;
+        min-width: 26px;
+        padding: 0 4px;
+        transition: color 200ms ease-in-out;
 
-    a,
-    button {
-      @extend %page-item-base;
-      min-width: 26px;
-      padding: 0 4px;
-      transition: color 200ms ease-in-out;
-
-      &:hover {
-        color: $blue;
+        &:hover {
+          color: $blue;
+        }
       }
     }
   }
