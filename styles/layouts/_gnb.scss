@@ -71,6 +71,24 @@
     &-icon-btn {
       margin-right: 8px;
     }
+
+    &-auth {
+      margin-left: 8px;
+
+      a {
+        @include text-style(14, $secondary);
+        font-weight: 700;
+        transition: color 200ms ease-in-out;
+
+        &:first-child {
+          margin-right: 12px;
+        }
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
   }
 
   @include responsive(D) {
