@@ -1,7 +1,16 @@
+// sass-lint:disable no-vendor-prefixes
+
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $sidebar-level;
   width: 240px;
+  height: 100vh;
   padding: 32px 20px;
+  overflow-y: auto;
   background-color: $white;
+  overscroll-behavior: contain;
 
   &-header {
     .logo {
@@ -86,5 +95,9 @@
         color: $blue;
       }
     }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
