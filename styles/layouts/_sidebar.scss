@@ -72,18 +72,18 @@
 
   &-user-menu {
     margin-top: 16px;
+  }
 
-    .user-menu-item {
-      a {
-        @include text-style(14, $primary);
-        @include flexbox(start);
-        width: 100%;
-        height: 36px;
-        padding: 0 12px;
+  &-menu-item {
+    a {
+      @include text-style(14, $primary);
+      @include flexbox(start);
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
 
-        &:active {
-          color: $blue;
-        }
+      &:active {
+        color: $blue;
       }
     }
   }
