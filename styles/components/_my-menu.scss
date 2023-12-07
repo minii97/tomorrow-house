@@ -1,9 +1,11 @@
 .my-menu {
+  $btn-size: 32px;
   $tooltip-size: 12px;
   position: relative;
 
   &-contents {
     @include pos-center-x;
+    top: $btn-size + $tooltip-size + 8px;
     border-radius: 4px;
     box-shadow: $dropdown-shadow;
 
@@ -24,6 +26,27 @@
     &::after {
       top: -#{($tooltip-size * 2)-2};
       border-bottom-color: $white;
+    }
+  }
+
+  &-btn {
+    width: $btn-size;
+    height: $btn-size;
+    overflow: hidden;
+    border: 3px solid $white;
+    border-radius: 50%;
+    transition: border-color 200ms ease-in-out;
+    object-fit: cover;
+
+    &:hover,
+    &.is-active {
+      border-color: $blue;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   }
 
