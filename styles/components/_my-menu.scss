@@ -3,11 +3,28 @@
   $tooltip-size: 12px;
   position: relative;
 
+  &.is-active {
+    .my-menu-btn {
+      border-color: $blue;
+    }
+
+    .my-menu-contents {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
   &-contents {
     @include pos-center-x;
     top: $btn-size + $tooltip-size + 8px;
     border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-50%, -10px, 0);
     box-shadow: $dropdown-shadow;
+    transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out,
+      transform 200ms ease-in-out;
 
     &::before,
     &:after {
@@ -42,8 +59,7 @@
     transition: border-color 200ms ease-in-out;
     object-fit: cover;
 
-    &:hover,
-    &.is-active {
+    &:hover {
       border-color: $blue;
     }
 
