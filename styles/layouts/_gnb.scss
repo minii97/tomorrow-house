@@ -1,10 +1,11 @@
 .gnb {
   position: relative;
+  background: $white;
   border-bottom: 1px solid $border;
 
   &-wrapper {
     @include flexbox(between);
-    height: 50px;
+    height: $gnb-height-sm - 1px; //gnb border가 1px 추가되어 height가 51px이 되는 현상을 수정하기 위해 1px 빼줌.
   }
 
   &-right {
@@ -35,7 +36,7 @@
 
   @include responsive(T) {
     &-wrapper {
-      height: 80px;
+      height: $gnb-height-md - 1px;
     }
 
     .logo {
