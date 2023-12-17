@@ -1,0 +1,68 @@
+.product-section-header {
+  @include flexbox(start);
+  position: relative;
+  width: 100%;
+  height: 64px;
+  background-color: $white;
+
+  .title {
+    @include text-style(16, $dark);
+  }
+
+  .badge {
+    @include text-style(16, $blue);
+    margin-left: 8px;
+    font-weight: 700;
+  }
+
+  .text-btn,
+  .icon-btn {
+    @include pos-center-y;
+    right: -15px;
+
+    // 각각 오른쪽에 15px 여유를 두었기 때문에 = content 영역이 왼쪽으로 15px 더감,  content 영역이 디자인 시안 처럼 구현하려면 right 값을 -15px 주어 오른쪽으로 생긴 여유 공간 만큼 더 붙게 만들어 줌.
+    &:active {
+      opacity: 0.4;
+    }
+  }
+
+  .text-btn {
+    @include text-style(14, $blue);
+    padding: 15px;
+    font-weight: 700;
+  }
+
+  .icon-btn {
+    @include flexbox;
+    width: 22px + (15px * 2);
+    height: 22px + (15px * 2);
+    // apple이 지정한 button의 최소크기(44x44)에 맞추기 위하여 디자인 시안의 22px에 상하좌우에 15px 여유를 주어 크기를 늘려줌.
+    font-size: 22px;
+    color: $secondary;
+
+    &.is-right {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+
+  @include responsive(T) {
+    .title {
+      @include text-style(18);
+    }
+
+    .badge {
+      @include text-style(18);
+    }
+
+    .text-btn {
+      @include text-style(16);
+    }
+
+    .text-btn,
+    .icon-btn {
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
