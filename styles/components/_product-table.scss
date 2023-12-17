@@ -1,0 +1,45 @@
+.product-table {
+  $table-cell-padding: 12px;
+  $table-th-width-sm: 100px;
+  $table-th-width-md: 140px + $table-cell-padding;
+  // 태블릿 이후로 width에서 table-cell-padding*2라고 표기되어 통일성이 무너지는 부분을 변수처리하여 코드의 가독성을 조금 더 좋게 해줌.
+
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  tr {
+    @include text-style(12, $primary);
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid $border;
+  }
+
+  td,
+  th {
+    padding: $table-cell-padding;
+  }
+
+  th {
+    width: $table-th-width-sm + $table-cell-padding;
+    //  디자인 상 시안은 왼쪽 끝에서 12px 떨어진 상태에서 100 양쪽에 padding이 있는데 현재 스타일은 양쪽에 padding이 12px이 있고 box-sizing:border-box가 되어있는 상태이기 때문에 12+100을 해주어 디자인 시안을 그대로 구현해낸다.
+    font-weight: 400;
+    color: $secondary;
+  }
+
+  td {
+    padding-left: 0;
+    // 디자인 시안에는 th의 content 영역인 왼쪽부터 112px이 끝나면 바로 td의 컨텐츠가 나오기 때문에 td에 주었던 padding을 왼쪽만 없애준다.
+    // th에 오른쪽 padding이 있기 때문에 두 요소의 컨텐츠는 겹칠 걱정이 없다.
+  }
+
+  @include responsive(T) {
+    tr {
+      @include text-style(14);
+    }
+
+    th {
+      width: $table-th-width-md + $table-cell-padding;
+    }
+  }
+}
