@@ -1,5 +1,41 @@
 .product-spec {
+  position: relative;
+  height: 470px;
   padding-top: 20px;
+  overflow: hidden;
+
+  &.is-open {
+    height: auto;
+
+    .btn-wrapper {
+      display: none;
+    }
+  }
+
+  .btn-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    background-color: $white;
+    // 해당 section에 height를 고정 시키고 overflow:hidden을 주어서 넘치는 자식요소들 때문에 product-section에 준 공통 padding-bottom:20px이 적용되지 않고 있어서 btn-wrapper에 padding-bottom을 20px 주어 영역을 확장시킨 후에 bg-color를 흰색으로 주어 마치 product-spec이 padding-bottom이 20px 적용되고 button이 product-spec의 bottom으로부터 20px 떨어진 곳에 띄워놓은 것과 같은 시각적 효과를 발생한다 (사용성 측면에서도 무리없음.)
+
+    &::before {
+      position: absolute;
+      bottom: 20px + 55px;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-image: linear-gradient(to top, $white 0%, transparent 100%);
+      content: '';
+    }
+    //before도 자식 요소이기 때문에 btn-wrapper의 height는 자식요소의 height 합을 가지기 때문에 before의 영역도 btn-wrapper의 영역이 되어 그 위의 요소인 figure가 짤리게 됨. -> position:absolute;로 같은 layer로 겹치지 않게하여 해결
+
+    button {
+      width: 100%;
+    }
+  }
 
   figure {
     img {
@@ -14,6 +50,8 @@
   }
 
   @include responsive(T) {
+    height: auto;
+
     .product-table {
       margin-top: 40px;
     }
