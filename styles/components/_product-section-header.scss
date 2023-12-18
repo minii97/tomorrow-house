@@ -18,7 +18,7 @@
   .text-btn,
   .icon-btn {
     @include pos-center-y;
-    right: -15px;
+    right: -#{$grid-margin};
 
     // 각각 오른쪽에 15px 여유를 두었기 때문에 = content 영역이 왼쪽으로 15px 더감,  content 영역이 디자인 시안 처럼 구현하려면 right 값을 -15px 주어 오른쪽으로 생긴 여유 공간 만큼 더 붙게 만들어 줌.
     &:active {
@@ -28,14 +28,14 @@
 
   .text-btn {
     @include text-style(14, $blue);
-    padding: 15px;
+    padding: $grid-margin;
     font-weight: 700;
   }
 
   .icon-btn {
     @include flexbox;
-    width: 22px + (15px * 2);
-    height: 22px + (15px * 2);
+    width: 22px + ($grid-margin * 2);
+    height: 22px + ($grid-margin * 2);
     // apple이 지정한 button의 최소크기(44x44)에 맞추기 위하여 디자인 시안의 22px에 상하좌우에 15px 여유를 주어 크기를 늘려줌.
     font-size: 22px;
     color: $secondary;
