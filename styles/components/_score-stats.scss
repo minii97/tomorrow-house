@@ -1,0 +1,66 @@
+.score-stats {
+  &-list {
+    display: inline-block;
+  } // .score-stats-list의 기본 width는 부모에게 상속받음 (부모는 review-scoreboard의 width를 50%로 지정해줌) 그러나 이 때 display:inline-block을 지정해줌으로써 자신의 자식요소의 contents 크기 만큼 width를 지정받음, 이 상황에서 부모요소에 text-align:center를 지정해주게 되면 자식요소인 .score-stats-list는 부모 width에 맞춰 가운데 정렬하게됨.
+
+  &-item {
+    @include flexbox(start);
+    @include text-style(12, $secondary);
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.is-active {
+      dt,
+      .count {
+        font-weight: 700;
+        color: $blue;
+      }
+    }
+
+    dt {
+      margin-right: 4px;
+    }
+
+    dd {
+      @include flexbox;
+
+      .bar-graph {
+        width: 70px;
+        height: 5px;
+        margin-right: 4px;
+        overflow: hidden; //bug로 인해 .active-bar가 .bar-graph를 넘어서는 경우 보이지 않게 처리하도록 함.
+        background-color: $border;
+        border-radius: (5px / 2);
+
+        .active-bar {
+          width: 40px;
+          height: 5px;
+          background-color: $blue;
+          border-radius: (5px / 2);
+        }
+      }
+
+      .count {
+        font-weight: 400;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-item {
+      dt {
+        margin-right: 8px;
+      }
+
+      dd {
+        .bar-graph {
+          width: 180px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
