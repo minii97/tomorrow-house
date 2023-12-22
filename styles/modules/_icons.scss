@@ -11,67 +11,52 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ic-bell:before {
+.ic-lock:before {
   content: '\e900';
 }
-
-.ic-bookmark:before {
-  content: '\e901';
-}
-
-.ic-bookmark-filled:before {
+.ic-bell:before {
   content: '\e902';
 }
-
-.ic-caret:before {
+.ic-bookmark:before {
   content: '\e903';
 }
-
-.ic-cart:before {
+.ic-BookmarkFilled:before {
   content: '\e904';
 }
-
-.ic-check:before {
+.ic-caret:before {
   content: '\e905';
 }
-
-.ic-chevron:before {
+.ic-cart:before {
   content: '\e906';
 }
-
-.ic-close:before {
+.ic-check:before {
   content: '\e907';
 }
-
-.ic-community:before {
+.ic-chevron:before {
   content: '\e908';
 }
-
-.ic-expert:before {
+.ic-close:before {
+  content: '\e901';
+}
+.ic-community:before {
   content: '\e909';
 }
-
-.ic-lock:before {
+.ic-expert:before {
   content: '\e90a';
 }
-
 .ic-menu:before {
   content: '\e90b';
 }
-
 .ic-new:before {
   color: $red;
   content: '\e90c';
 }
-
 .ic-search:before {
   content: '\e90d';
 }
-
 .ic-star:before {
   content: '\e90e';
 }
-
 .ic-store:before {
   content: '\e90f';
 }
