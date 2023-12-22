@@ -1,0 +1,78 @@
+.inquiry-card {
+  padding-bottom: 40px;
+
+  &-header {
+    @include text-style(12);
+    //header안의 모든 요소가 12px color만 다르고 12px text-style 적용중이라 최상위 요소에게 include해줌
+    margin-bottom: 8px;
+
+    .detail,
+    .misc {
+      @include flexbox(start);
+
+      dd,
+      strong {
+        &::after {
+          margin: 0 4px;
+          content: '|';
+        }
+      }
+      // dd 사이의 구분선 구현
+
+      dd:last-child::after {
+        content: none;
+      }
+      // 마지막 요소는 구분선 없애기 위해 content: none; 지정
+    }
+
+    .detail {
+      margin-bottom: 8px;
+      color: $primary;
+    }
+
+    .misc {
+      color: $tertiary;
+
+      strong {
+        font-weight: 400;
+      }
+    }
+  }
+
+  &-body {
+    @include text-style(13);
+
+    .question-content {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-weight: 700;
+      color: $blue;
+    }
+    //span은 항상 자신을 감싸는 부모기준 좌측 최상단에 위치하게함.
+
+    p {
+      color: $primary;
+    }
+    //p에 작성되는 리뷰 본문은 항상 자신의 부모 기준 좌측으로 20px떨어진 곳에 쓰이게 됨.
+  }
+
+  @include responsive(T) {
+    &-header {
+      margin-bottom: 20px;
+    }
+
+    &-body {
+      @include text-style(16);
+
+      .question-content {
+        padding-left: 24px;
+      }
+    }
+  }
+}
