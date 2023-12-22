@@ -57,7 +57,14 @@
     //span은 항상 자신을 감싸는 부모기준 좌측 최상단에 위치하게함.
 
     p {
+      @include flexbox(start);
       color: $primary;
+
+      i {
+        margin-right: 8px;
+        font-size: 16px;
+        color: $tertiary;
+      }
     }
     //p에 작성되는 리뷰 본문은 항상 자신의 부모 기준 좌측으로 20px떨어진 곳에 쓰이게 됨.
   }
