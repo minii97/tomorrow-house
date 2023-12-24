@@ -1,0 +1,26 @@
+.product-recommendation {
+  .product-list {
+    @include flexbox(between, start);
+    flex-wrap: wrap;
+  }
+
+  .product-item {
+    width: calc((50% - 10px)); // (100% - 20px)/2
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include responsive(T) {
+    .product-item {
+      width: calc(33.33333% - 11px);
+      margin-bottom: 0 !important; //위에 적용된 가상클래스 style을 덮어씌우기 위해 구체성 순위에서 상위인 important 적용
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
