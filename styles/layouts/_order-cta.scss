@@ -1,0 +1,38 @@
+.order-cta {
+  @include flexbox;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $order-cta-level;
+  width: 100%;
+  height: $order-cta-height;
+  padding: 0 4px;
+  background-color: $white;
+
+  .btn-ghost {
+    flex-direction: column;
+    //모든 btn 컴포넌트는 inline-flex로 자식요소 정렬중이기때문에 flex-direction을 column으로 바꿔주어 자식요소를 세로로 한 줄 정렬함
+    flex-grow: 0;
+    flex-shrink: 0;
+    //해당 btn의 크기를 무조건적으로 72px로 고정시키기 위해 grow/shrink 모두 false값을 줌
+    width: 72px;
+    margin-right: 4px;
+
+    span {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: -0.05em;
+      color: $secondary;
+    }
+
+    i {
+      font-size: 24px;
+      color: $primary;
+    }
+  }
+
+  .btn-primary {
+    flex-grow: 1;
+  }
+}
