@@ -1,14 +1,59 @@
 .user-gallery {
   margin: 0 -#{$grid-margin};
+  overflow: hidden;
 
   &-slider {
+    position: relative;
     margin-bottom: 4px;
+  }
+
+  &-controls {
+    @include flexbox(between);
+    @include pos-center-y;
+    width: 100%;
+    padding: 0 52px;
+
+    .control-button {
+      @include flexbox;
+      width: 40px;
+      height: 40px;
+      font-size: 28px;
+      color: $primary;
+      background-color: $white;
+      border-radius: 50%;
+      transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+
+      &[disabled] {
+        visibility: hidden;
+      }
+
+      &.is-prev {
+        i {
+          margin-left: -2px;
+          transform: rotate(90deg);
+        }
+      }
+
+      &.is-next {
+        i {
+          margin-right: -2px;
+          transform: rotate(-90deg);
+        }
+      }
+
+      &:hover {
+        color: $white;
+        background-color: $blue;
+      }
+    }
   }
 
   &-thumbnail {
     .thumbnail-list {
       @include flexbox(start);
+      @include no-scrollbar;
       padding-left: 2px;
+      overflow: auto;
     }
 
     .thumbnail-item {
@@ -23,6 +68,7 @@
         width: 64px;
         height: 64px;
         overflow: hidden;
+        border: 3px solid transparent;
         border-radius: 4px;
       }
 
@@ -35,7 +81,7 @@
 
       &.tns-nav-active {
         button {
-          border: 3px solid $blue;
+          border-color: $blue;
         }
       }
     }
