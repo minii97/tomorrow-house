@@ -18,6 +18,12 @@
     width: 72px;
     margin-right: 4px;
 
+    &.is-active {
+      i {
+        color: $blue;
+      }
+    }
+
     span {
       font-size: 10px;
       font-weight: 400;
