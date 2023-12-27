@@ -1,0 +1,47 @@
+.floating-order-form {
+  @include flexbox(start, start);
+  flex-direction: column;
+  width: 100%;
+  height: 700px; //TEMP = 임시값
+
+  > * {
+    width: 100%;
+
+    &:not(.order-checkout) {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
+  .order-checkout {
+    @include no-scrollbar;
+    flex-grow: 1;
+    overflow: auto;
+  }
+
+  .btn-group {
+    .bookmark-button {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 55px;
+      border: 1px solid $border;
+      border-radius: 4px;
+      transition: background-color 200ms ease-in-out;
+
+      i {
+        font-size: 32px;
+        color: $primary;
+      }
+
+      &:hover {
+        background-color: $background;
+      }
+
+      &.is-active {
+        i {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
